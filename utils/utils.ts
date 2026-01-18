@@ -1,3 +1,15 @@
+/**
+ * Formats a date to US locale string format.
+ * 
+ * Converts a Date object, date string, or timestamp to a human-readable
+ * US locale format (e.g., "Dec 25, 2024, 2:30:45 PM").
+ * 
+ * @param date - Date object, ISO date string, or timestamp number
+ * @returns Formatted date string in US locale format
+ * @example
+ * formatDateTimeUS(new Date('2024-12-25T14:30:45.123Z'))
+ * // Returns: "Dec 25, 2024, 2:30:45 PM"
+ */
 export const formatDateTimeUS = (date: Date | string | number): string => {
   return new Date(date).toLocaleString('en-US', {
     month: 'short',    // Dec
@@ -10,6 +22,22 @@ export const formatDateTimeUS = (date: Date | string | number): string => {
   });
 };
 
+/**
+ * Converts a date to YYYY-MM-DD format string.
+ * 
+ * Takes a Date object or ISO date string and returns a formatted string
+ * in YYYY-MM-DD format (e.g., "2024-12-25"). Months and days are zero-padded.
+ * Uses local time to match the user's timezone.
+ * 
+ * @param input - Date object or ISO date string
+ * @returns Date string in YYYY-MM-DD format
+ * @throws {Error} If input is not a valid Date or string, or if string cannot be parsed
+ * @example
+ * toYYYYMMDD(new Date('2024-12-25T14:30:45.123Z'))
+ * // Returns: "2024-12-25"
+ * toYYYYMMDD('2024-01-05T12:00:00.000Z')
+ * // Returns: "2024-01-05"
+ */
 export const toYYYYMMDD = (input: string | Date): string => {
   let date: Date;
   if (input instanceof Date) {

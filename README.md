@@ -1,4 +1,41 @@
-# App Store Url - https://apps.apple.com/us/app/event-counter-tracker/id6755982968
+# Event Counter - Event Tracker App
+
+A React Native mobile application built with Expo for tracking and counting personal events. Users can create custom events with icons and colors, record occurrences with timestamps, view analytics with charts and heatmaps, and manage their event history.
+
+**App Store**: https://apps.apple.com/us/app/id6755982968
+
+## Features
+
+- Create and manage custom events with personalized icons and colors
+- Track event occurrences with timestamps and optional comments
+- View event history in chronological timeline
+- Analytics dashboard with monthly bar charts and activity heatmaps
+- Favorite events for quick access
+- Data export/import functionality
+- Dark mode support
+- Persistent data storage using AsyncStorage
+
+## Tech Stack
+
+- **React Native** (0.81.5) with **Expo** (~54.0)
+- **TypeScript** for type safety
+- **Expo Router** for file-based navigation
+- **Zustand** for state management
+- **React Native Reanimated** for animations
+- **React Native Gifted Charts** for data visualization
+
+## Project Structure
+
+```
+├── app/              # Expo Router screens and modals
+├── components/       # Reusable React components
+├── zustand/          # Zustand store for state management
+├── utils/            # Utility functions
+├── interfaces/       # TypeScript type definitions
+└── constants/        # Theme constants and styling
+```
+
+## Getting Started
 
 # Welcome to your Expo app 👋
 

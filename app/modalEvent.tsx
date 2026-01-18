@@ -38,6 +38,14 @@ export default function ModalEventScreen() {
     }
   }, []);
 
+  /**
+   * Processes event data and updates yearly statistics for analytics display.
+   * 
+   * Groups events by year, calculates monthly event counts for each year,
+   * and creates bar chart data. Years are sorted in descending order.
+   * 
+   * @param data - Array of event data items to analyze
+   */
   const updateYearlyStats = (data: EventDataItemType[]) => {
     // Group events by year
     const byYear = new Map<number, EventDataItemType[]>();
@@ -66,6 +74,14 @@ export default function ModalEventScreen() {
     setYearlyStats(stats);
   };
 
+  /**
+   * Removes a specific event occurrence from the event's data array.
+   * 
+   * Finds and removes the event occurrence matching both dateTime and comment,
+   * then updates both the store and local state, and recalculates statistics.
+   * 
+   * @param itemToRemove - The event data item to remove
+   */
   const removeEvent = (itemToRemove: EventDataItemType) => {
     const eventIndex = eventsData.findIndex(ev=>ev.id === params.id);
     if (eventIndex === -1) return;

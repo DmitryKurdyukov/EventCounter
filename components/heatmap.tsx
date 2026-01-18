@@ -7,13 +7,30 @@ import { EventDataItemType } from '@/interfaces/interfaces';
 import { toYYYYMMDD } from '@/utils/utils';
 
 interface HeatmapProps {
+  /** Array of event data items to visualize in the heatmap */
   data: EventDataItemType[];
 }
 
+/**
+ * Displays a weekly heatmap visualization of event occurrences.
+ * 
+ * The component processes event data to create a calendar-style heatmap
+ * showing event frequency by date. Only months with events are displayed,
+ * and cells are color-coded based on event count.
+ * 
+ * @param props - Component props
+ * @param props.data - Array of event occurrences to visualize
+ * @returns A scrollable weekly heatmap component
+ */
 export default function Heatmap({ data }: HeatmapProps) {
   const colorScheme = useColorScheme();
 
-  // Get unique months from the data
+  /**
+   * Extracts unique months (YYYY-MM format) from event data.
+   * 
+   * @param events - Array of event data items
+   * @returns Sorted array of month keys in YYYY-MM format
+   */
   const getMonthsWithData = (events: EventDataItemType[]) => {
     const months = new Set<string>();
     events.forEach((event) => {
@@ -44,6 +61,14 @@ export default function Heatmap({ data }: HeatmapProps) {
     });
   });
 
+  /**
+   * Converts event data to heatmap format.
+   * 
+   * Groups events by date and counts occurrences per day.
+   * 
+   * @param events - Array of event data items
+   * @returns Record mapping date strings (YYYY-MM-DD) to event counts
+   */
   const eventsToHeatmapData = (
     events: EventDataItemType[]
   ): Record<string, number> => {
